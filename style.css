@@ -1,1 +1,28 @@
-.
+.main {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-block {
+    background-color: white;
+    max-width: 300px;
+    height: auto;    
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-block>h2 {
+    font-size: 28px;
+    border-left: 5px solid #3498db;
+    background-color: #ecf0f1;
+    padding: 10px 15px;
+}
