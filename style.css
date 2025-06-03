@@ -17,7 +17,6 @@ body {
     margin-left: 300px;
     margin-right: 300px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
@@ -38,8 +37,10 @@ body {
     padding: 10px 15px;
 }
 
-.text-block>img {
-    margin-top: 20px;
-    max-width: 200px;
-    max-height: 100px;
+.photo-container {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
