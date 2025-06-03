@@ -7,17 +7,29 @@ body {
     overflow-x: hidden;
     background-color: #f5f5f5;
 }
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
 .main {
     margin: 0;
     padding: 0;
     background-color: antiquewhite;
+    display: flex;
 }
 
 .main-block {
-    margin-left: 300px;
-    margin-right: 300px;
     display: flex;
     justify-content: center;
+    max-width: 1200;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .text-block {
