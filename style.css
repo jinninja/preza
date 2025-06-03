@@ -57,3 +57,8 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+.photo-container>img {
+    width: auto;
+    height: 100px;
+}
