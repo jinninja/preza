@@ -55,6 +55,7 @@ h1 {
     background-color: #ecf0f1;
     border-radius: 8px;
     margin: 20px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     height: auto;
@@ -62,5 +63,5 @@ h1 {
 
 .photo-container>img {
     width: auto;
-    height: 100px;
+    height: 250px;
 }
