@@ -40,7 +40,7 @@ body {
 .photo-container {
     background-color: #ecf0f1;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin: 20px;
     display: flex;
     justify-content: center;
 }
