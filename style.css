@@ -75,18 +75,6 @@ h2 {
     height: 400px;
 }
 
-/* styles.css */
-
-/* Общие стили */
-body {
- margin: 0;
- font-family: Arial, sans-serif;
- padding: 0;
- margin: 0;
-}
-
-/* Стили боковой панели */
-/* Стили боковой панели */
 .sidebar {
     height: 100%;
     width: 200px;
@@ -112,12 +100,7 @@ body {
     color: #f1f1f1;
 }
 
-.sidebar.active {
+.sidebar a.active {
     background-color: rgb(252, 102, 102);
     color: white;
-}
-
-/* Анимация прокрутки */
-html {
-    scroll-behavior: smooth;
 }

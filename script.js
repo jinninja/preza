@@ -1,37 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navItems = document.querySelectorAll('.sidebar a');
+    const navLinks = document.querySelectorAll('.sidebar a');
     
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault(); // предотвращаем стандартное поведение ссылки
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Удаляем класс active у всех элементов
-            navItems.forEach(navItem => navItem.classList.remove('active'));
-            
-            // Добавляем класс active текущему элементу
+            navLinks.forEach(nav => nav.classList.remove('active'));
             this.classList.add('active');
             
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
             
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
     
-    // Автоматическое выделение активного элемента при прокрутке
-    window.onscroll = function() {
-        const sections = document.querySelectorAll('h2');
+    window.addEventListener('scroll', function() {
         const navLinks = document.querySelectorAll('.sidebar a');
-        let cur;
+        let current = null;
+        
+        // Находим все разделы с якорями
+        const sections = document.querySelectorAll('[id]');
         
         sections.forEach(section => {
-            if(section.offsetTop - 80 <= window.scrollY) { // компенсируем высоту сайдбара
-                cur = section.id;
+            if (section.offsetTop - 80 <= window.scrollY) {
+                current = section.id;
             }
         });
         
         navLinks.forEach(link => {
-            if(link.href.includes(cur)) {
+            if (link.href.includes(current)) {
                 navLinks.forEach(nav => nav.classList.remove('active'));
                 link.classList.add('active');
             }
         });
-    };
+    });
 });
