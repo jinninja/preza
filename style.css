@@ -13,31 +13,28 @@ h1 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 40px;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 3px solid red;
     padding-bottom: 10px;
     margin-top: 30px;
 }
 
 .main {
-    margin: 0;
-    padding: 0;
     display: flex;
-    height: auto;
+    width: 100%;
+    position: relative;
 }
 
 .main-block {
-    display: flex;
-    justify-content: center;
     max-width: 1200px;
+    padding: 20px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+    
 }
 
 .text-block {
-    background-color: white;
-    width: 300px;
-    height: auto;    
+    background-color: white; 
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 8px;
@@ -46,7 +43,7 @@ h1 {
 
 .text-block>h2 {
     font-size: 28px;
-    border-left: 5px solid #7724e2;
+    border-left: 5px solid red;
     background-color: #ecf0f1;
     padding: 10px 15px;
 }
@@ -54,11 +51,11 @@ h1 {
 .photo-container {
     background-color: #ecf0f1;
     border-radius: 8px;
-    margin: 20px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .photo-container>img {
