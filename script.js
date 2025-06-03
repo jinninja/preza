@@ -41,3 +41,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// Получаем все изображения
+const images = document.querySelectorAll('.photo-container img');
+
+// Получаем модальное окно и изображение внутри него
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+
+// Добавляем обработчик клика на каждое изображение
+images.forEach(image => {
+  image.addEventListener('click', function() {
+    modal.style.display = 'flex';
+    modalImg.src = this.src;
+    document.body.style.overflow = 'hidden'; // Блокируем пролистывание страницы
+  });
+});
+
+// Закрываем модальное окно при клике на крестик или вне изображения
+const closeBtn = document.querySelector('.close-btn');
+window.addEventListener('click', function(event) {
+  if (event.target == modal || event.target == closeBtn) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Восстанавливаем пролистывание страницы
+  }
+});
