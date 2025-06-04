@@ -1,45 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.sidebar a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection && targetId !== 'modal' && targetId !== 'modal-img') {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  window.addEventListener('scroll', function() {
     const navLinks = document.querySelectorAll('.sidebar a');
-    
+    let current = null;
+
+    // Находим все разделы с якорями, исключая модальное окно
+    const sections = Array.from(document.querySelectorAll('[id]')).filter(section => section.id !== 'modal' && section.id !== 'modal-img');
+    console.log(sections);
+
+    sections.forEach(section => {
+      if (section.offsetTop - 80 <= window.scrollY) {
+        current = section.id;
+      }
+    });
+
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
+      const hrefId = link.getAttribute('href').substring(1);
+      //console.log('hrefId:', hrefId); // Добавляем логирование
+      //console.log('current:', current); // Добавляем логирование
+      if (hrefId === current) {
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+      }
     });
-    
-    window.addEventListener('scroll', function() {
-        const navLinks = document.querySelectorAll('.sidebar a');
-        let current = null;
-        
-        // Находим все разделы с якорями
-        const sections = document.querySelectorAll('[id]');
-        
-        sections.forEach(section => {
-            if (section.offsetTop - 80 <= window.scrollY) {
-                current = section.id;
-            }
-        });
-        
-        navLinks.forEach(link => {
-            if (link.href.includes(current)) {
-                navLinks.forEach(nav => nav.classList.remove('active'));
-                link.classList.add('active');
-            }
-        });
-    });
+  });
 });
 // Получаем все изображения
 const images = document.querySelectorAll('.photo-container img');
